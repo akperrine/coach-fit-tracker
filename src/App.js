@@ -1,5 +1,6 @@
 import "./App.css";
-import React from "react";
+import React, { useEffect } from "react";
+import WorkoutDay from "./components/WorkoutDay/workoutDay";
 import { initializeApp } from "firebase/app";
 import {
   getFirestore,
@@ -28,68 +29,85 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 function App() {
-  const [idSearchField, setIdSearchField] = React.useState("");
+  // const [idSearchField, setIdSearchField] = React.useState("");
+  // const handleChange = (e) => {
+  //   setIdSearchField(e.target.value);
+  // };
 
-  const handleChange = (e) => {
-    setIdSearchField(e.target.value);
-  };
+  // const handleUpdate = async (strCode) => {
+  //   const workoutArr = [
+  //     {
+  //       day: 1,
+  //       workout: [
+  //         "3rds",
+  //         "A: 6-7 front squats 18lbs bar (2020)",
+  //         "A: 5 dumbell Benchpress 10lb DB (2110)",
+  //         "3rds:",
+  //         "B: 6-7 Romanian Deadlifts 10lb DB (2011)",
+  //         "B: 6-7 single arm DB Row 10 (2020)",
+  //         "4 Rds:",
+  //         "1min spin on the bike (check what watts or RPMs fit you well)",
+  //         "20-30s dead bug hold",
+  //       ],
+  //       complete: false,
+  //     },
+  //     { day: 2, workout: [], complete: false },
+  //     {
+  //       day: 3,
+  //       workout: [
+  //         "3rds",
+  //         "A: 5-7 pushups to a bench (2011)",
+  //         "A: 6-10 scap pull-ups (2120)",
+  //       ],
+  //       complete: false,
+  //     },
+  //     { day: 4, workout: [], complete: false },
+  //     { day: 5, workout: [], complete: false },
+  //     {
+  //       day: 6,
+  //       workout: [
+  //         "Steady state day:",
+  //         "20min: ",
+  //         "-fast walk or jog (should be easy) down to Munsils and back. (We should start measuring some stuff out)",
+  //         "-12 no push-up burpees (be a slow pace person, take reps between.",
+  //         "-30 sec plank",
+  //       ],
+  //       complete: false,
+  //     },
+  //     { day: 7, workout: [], complete: false },
+  //   ];
 
-  const handleUpdate = async (strCode) => {
-    const workoutArr = [
-      {
-        day: 1,
-        workout: [
-          "3rds",
-          "A: 6-7 front squats 18lbs bar (2020)",
-          "A: 5 dumbell Benchpress 10lb DB (2110)",
-          "3rds:",
-          "B: 6-7 Romanian Deadlifts 10lb DB (2011)",
-          "B: 6-7 single arm DB Row 10 (2020)",
-          "4 Rds:",
-          "1min spin on the bike (check what watts or RPMs fit you well)",
-          "20-30s dead bug hold",
-        ],
+  //   const docRef = doc(db, "users", strCode);
+
+  //   await updateDoc(docRef, {
+  //     workout: workoutArr,
+  //   })
+  //     .then(() => alert("update successful"))
+  //     .catch((err) => alert(`unsucessful, error:${err}`));
+  // };
+  const [updateArr, setUpdateArr] = React.useState([]);
+  // console.log(updateArr);
+
+  useEffect(() => {
+    let arr = [];
+    for (let i = 0; i < 7; i++) {
+      const dayObj = {
+        day: i + 1,
         complete: false,
-      },
-      { day: 2, workout: [], complete: false },
-      {
-        day: 3,
-        workout: [
-          "3rds",
-          "A: 5-7 pushups to a bench (2011)",
-          "A: 6-10 scap pull-ups (2120)",
-        ],
-        complete: false,
-      },
-      { day: 4, workout: [], complete: false },
-      { day: 5, workout: [], complete: false },
-      {
-        day: 6,
-        workout: [
-          "Steady state day:",
-          "20min: ",
-          "-fast walk or jog (should be easy) down to Munsils and back. (We should start measuring some stuff out)",
-          "-12 no push-up burpees (be a slow pace person, take reps between.",
-          "-30 sec plank",
-        ],
-        complete: false,
-      },
-      { day: 7, workout: [], complete: false },
-    ];
-
-    const docRef = doc(db, "users", strCode);
-
-    await updateDoc(docRef, {
-      workout: workoutArr,
-    })
-      .then(() => alert("update successful"))
-      .catch((err) => alert(`unsucessful, error:${err}`));
-  };
+        workout: [],
+      };
+      arr.push(dayObj);
+    }
+    setUpdateArr(arr);
+  }, []);
 
   return (
     <div className="App">
       <h2>Welcome Austin</h2>
-      <input
+      {updateArr.map((day, index) => {
+        return <WorkoutDay dayIndex={index} />;
+      })}
+      {/* <input
         type="text"
         placeholder="user ID"
         value={idSearchField}
@@ -97,7 +115,7 @@ function App() {
       />
       <button onClick={handleUpdate(idSearchField)}>
         Update Client Workouts
-      </button>
+      </button> */}
     </div>
   );
 }
