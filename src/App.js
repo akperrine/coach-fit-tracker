@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useEffect } from "react";
 import WorkoutDay from "./components/WorkoutDay/workoutDay";
+import ClientList from "./components/Client-List/client-list";
 import { initializeApp } from "firebase/app";
 import {
   getFirestore,
@@ -31,8 +32,6 @@ const db = getFirestore(app);
 function App() {
   const [idSearchField, setIdSearchField] = React.useState("");
   const [updateArr, setUpdateArr] = React.useState([]);
-  console.log(updateArr);
-  console.log(idSearchField);
 
   useEffect(() => {
     let arr = [];
@@ -69,6 +68,7 @@ function App() {
   return (
     <div className="App">
       <h2>Welcome Austin</h2>
+      <ClientList db={db} />
       <input
         type="text"
         placeholder="user ID"
