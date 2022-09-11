@@ -85,8 +85,10 @@ function App() {
   //     .then(() => alert("update successful"))
   //     .catch((err) => alert(`unsucessful, error:${err}`));
   // };
+  const [idSearchField, setIdSearchField] = React.useState("");
   const [updateArr, setUpdateArr] = React.useState([]);
-  // console.log(updateArr);
+  console.log(updateArr);
+  console.log(idSearchField);
 
   useEffect(() => {
     let arr = [];
@@ -101,12 +103,40 @@ function App() {
     setUpdateArr(arr);
   }, []);
 
+  const handleChange = (event) => {
+    setIdSearchField(event.target.value);
+  };
+
+  const handleUpdateClient = async () => {
+    const docRef = doc(db, "users", idSearchField);
+    await updateDoc(docRef, {
+      workout: updateArr,
+    })
+      .then(() => alert("update successful"))
+      .catch((err) => alert(`unsucessful, error:${err}`));
+  };
+
+  const handleUpdateWeek = (dayArray, index) => {
+    const arrCopy = [...updateArr];
+    arrCopy[index] = { ...arrCopy[index], workout: dayArray };
+    setUpdateArr(arrCopy);
+  };
+
   return (
     <div className="App">
       <h2>Welcome Austin</h2>
+      <input
+        type="text"
+        placeholder="user ID"
+        value={idSearchField}
+        onChange={handleChange}
+      />
       {updateArr.map((day, index) => {
-        return <WorkoutDay dayIndex={index} />;
+        return (
+          <WorkoutDay dayIndex={index} handleUpdateWeek={handleUpdateWeek} />
+        );
       })}
+      <button onClick={handleUpdateClient}>Update Weekly Plan to Client</button>
       {/* <input
         type="text"
         placeholder="user ID"

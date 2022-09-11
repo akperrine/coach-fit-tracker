@@ -1,10 +1,10 @@
 import "./workoutDay.css";
 import React from "react";
 
-const WorkoutDay = ({ dayIndex }) => {
+const WorkoutDay = ({ dayIndex, handleUpdateWeek }) => {
   const [exerciseArr, setExerciseArr] = React.useState([]);
   const [dayInputField, setDayInputField] = React.useState("");
-  console.log(dayInputField, exerciseArr);
+  //   console.log(exerciseArr);
 
   const weekdays = [
     "Sunday",
@@ -21,11 +21,17 @@ const WorkoutDay = ({ dayIndex }) => {
     const newArray = [...exerciseArr];
     newArray.push({ excerpt: dayInputField, id: Date.now() });
     setExerciseArr(newArray);
+    setDayInputField("");
   };
 
   const handleInputChange = (event) => {
     event.preventDefault();
     setDayInputField(event.target.value);
+  };
+
+  const onHandleUpdateWeek = () => {
+    handleUpdateWeek(exerciseArr, dayIndex);
+    setDayInputField("");
   };
 
   return (
@@ -44,9 +50,13 @@ const WorkoutDay = ({ dayIndex }) => {
           name="exercise-input"
           placeholder="add an exercise or note"
           onChange={handleInputChange}
+          value={dayInputField}
         />
-        <button>Add Exercise note</button>
+        <button type="submit">Add Exercise note</button>
       </form>
+      <button
+        onClick={onHandleUpdateWeek}
+      >{`Update ${weekdays[dayIndex]}'s workout`}</button>
     </div>
   );
 };
