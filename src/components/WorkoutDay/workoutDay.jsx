@@ -18,10 +18,15 @@ const WorkoutDay = ({ dayIndex, handleUpdateWeek }) => {
 
   const handleAddNote = (event) => {
     event.preventDefault();
-    const newArray = [...exerciseArr];
-    newArray.push({ excerpt: dayInputField, id: Date.now() });
-    setExerciseArr(newArray);
-    setDayInputField("");
+
+    if (dayInputField) {
+      const newArray = [...exerciseArr];
+      newArray.push({ excerpt: dayInputField, id: Date.now() });
+      setExerciseArr(newArray);
+      setDayInputField("");
+    } else {
+      return null;
+    }
   };
 
   const handleInputChange = (event) => {
@@ -34,12 +39,28 @@ const WorkoutDay = ({ dayIndex, handleUpdateWeek }) => {
     setDayInputField("");
   };
 
+  const handleDeleteExcerpt = (id) => {
+    const editedArr = exerciseArr.filter((item) => item.id !== id);
+    setExerciseArr(editedArr);
+  };
+
   return (
     <div>
       <h4>Workout For {weekdays[dayIndex]}</h4>
       {exerciseArr.length ? (
         exerciseArr.map((note) => {
-          return <p>{note.excerpt}</p>;
+          return (
+            <div>
+              <p>{note.excerpt}</p>
+              <button
+                onClick={() => {
+                  handleDeleteExcerpt(note.id);
+                }}
+              >
+                x
+              </button>
+            </div>
+          );
         })
       ) : (
         <p>Nothing currently Programmed</p>

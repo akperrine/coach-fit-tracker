@@ -29,62 +29,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 function App() {
-  // const [idSearchField, setIdSearchField] = React.useState("");
-  // const handleChange = (e) => {
-  //   setIdSearchField(e.target.value);
-  // };
-
-  // const handleUpdate = async (strCode) => {
-  //   const workoutArr = [
-  //     {
-  //       day: 1,
-  //       workout: [
-  //         "3rds",
-  //         "A: 6-7 front squats 18lbs bar (2020)",
-  //         "A: 5 dumbell Benchpress 10lb DB (2110)",
-  //         "3rds:",
-  //         "B: 6-7 Romanian Deadlifts 10lb DB (2011)",
-  //         "B: 6-7 single arm DB Row 10 (2020)",
-  //         "4 Rds:",
-  //         "1min spin on the bike (check what watts or RPMs fit you well)",
-  //         "20-30s dead bug hold",
-  //       ],
-  //       complete: false,
-  //     },
-  //     { day: 2, workout: [], complete: false },
-  //     {
-  //       day: 3,
-  //       workout: [
-  //         "3rds",
-  //         "A: 5-7 pushups to a bench (2011)",
-  //         "A: 6-10 scap pull-ups (2120)",
-  //       ],
-  //       complete: false,
-  //     },
-  //     { day: 4, workout: [], complete: false },
-  //     { day: 5, workout: [], complete: false },
-  //     {
-  //       day: 6,
-  //       workout: [
-  //         "Steady state day:",
-  //         "20min: ",
-  //         "-fast walk or jog (should be easy) down to Munsils and back. (We should start measuring some stuff out)",
-  //         "-12 no push-up burpees (be a slow pace person, take reps between.",
-  //         "-30 sec plank",
-  //       ],
-  //       complete: false,
-  //     },
-  //     { day: 7, workout: [], complete: false },
-  //   ];
-
-  //   const docRef = doc(db, "users", strCode);
-
-  //   await updateDoc(docRef, {
-  //     workout: workoutArr,
-  //   })
-  //     .then(() => alert("update successful"))
-  //     .catch((err) => alert(`unsucessful, error:${err}`));
-  // };
   const [idSearchField, setIdSearchField] = React.useState("");
   const [updateArr, setUpdateArr] = React.useState([]);
   console.log(updateArr);
@@ -137,15 +81,6 @@ function App() {
         );
       })}
       <button onClick={handleUpdateClient}>Update Weekly Plan to Client</button>
-      {/* <input
-        type="text"
-        placeholder="user ID"
-        value={idSearchField}
-        onChange={handleChange}
-      />
-      <button onClick={handleUpdate(idSearchField)}>
-        Update Client Workouts
-      </button> */}
     </div>
   );
 }
