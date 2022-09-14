@@ -26,8 +26,14 @@ const ClientList = ({ db }) => {
     <div>
       {clientData.map((client) => {
         return (
-          <Link to="/edit" state={{ client: client }}>
-            <h3>{`${client.user}`}</h3>
+          <Link
+            className="update-link-container"
+            to="/edit"
+            state={{ client: client }}
+          >
+            <button className="home-client " type="button" data-hover="Update">
+              <span>{`${client.user}`}</span>
+            </button>
           </Link>
         );
       })}

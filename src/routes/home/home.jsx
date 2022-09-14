@@ -10,8 +10,10 @@ const Home = () => {
   return (
     <div className="home">
       <h2 className="welcome-header">Welcome Austin</h2>
-      <p>Active Clients</p>
-      <ClientList db={db} />
+      <div className="client-list-container">
+        <p>Active Clients</p>
+        <ClientList db={db} />
+      </div>
     </div>
   );
 };
