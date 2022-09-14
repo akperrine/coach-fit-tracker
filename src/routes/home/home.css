@@ -1,0 +1,22 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+.welcome-header {
+  font-size: 40px;
+  padding: 20px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  border-radius: 6px;
+  margin: 30px 50px 20px 50px;
+  max-width: 600px;
+}
+
+.home > p {
+  font-size: 30px;
+  margin-bottom: 20px;
+}

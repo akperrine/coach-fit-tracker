@@ -7,7 +7,6 @@ import { db } from "../../utils/firebase.utils";
 const WeekProgram = ({ client }) => {
   const [idSearchField, setIdSearchField] = React.useState("");
   const [updateArr, setUpdateArr] = React.useState([]);
-  console.log(updateArr);
 
   React.useEffect(() => {
     let arr = [];

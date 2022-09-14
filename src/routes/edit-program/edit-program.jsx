@@ -1,4 +1,4 @@
-import WeekProgram from "../components/WeekProgram/week-program";
+import WeekProgram from "../../components/WeekProgram/week-program";
 import { useLocation } from "react-router-dom";
 
 const EditProgram = () => {

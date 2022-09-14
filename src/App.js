@@ -1,14 +1,19 @@
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
-import Home from "./routes/home";
-import EditProgram from "./routes/edit-program";
+import Home from "./routes/home/home";
+import EditProgram from "./routes/edit-program/edit-program";
+import Navigation from "./routes/navigation/navigation";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/edit" element={<EditProgram />} />
-    </Routes>
+    <div className="app-container">
+      <Routes>
+        <Route path="/" element={<Navigation />}>
+          <Route index element={<Home />} />
+          <Route path="/edit" element={<EditProgram />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 

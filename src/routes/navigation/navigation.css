@@ -1,0 +1,12 @@
+.nav {
+  background: var(--shade-4);
+  background-clip: padding-box;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  height: 50px;
+}
