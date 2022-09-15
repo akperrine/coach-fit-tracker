@@ -43,7 +43,7 @@ button {
 
 .btn {
   border-radius: 5px;
-  transition: 0.7s;
+  transition: 0.5s;
 }
 
 .btn:hover {

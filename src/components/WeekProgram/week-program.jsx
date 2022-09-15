@@ -40,19 +40,15 @@ const WeekProgram = ({ client }) => {
     setUpdateArr(arrCopy);
   };
   return (
-    <div>
-      <h2>{`${client.user}`}</h2>
-      {/* <input
-        type="text"
-        placeholder="user ID"
-        value={idSearchField}
-        onChange={handleChange}
-      /> */}
-      {updateArr.map((day, index) => {
-        return (
-          <WorkoutDay dayIndex={index} handleUpdateWeek={handleUpdateWeek} />
-        );
-      })}
+    <div className="workout-week">
+      <h2 className="client-header">{`Client: ${client.user}`}</h2>
+      <div className="week-schedule-container">
+        {updateArr.map((day, index) => {
+          return (
+            <WorkoutDay dayIndex={index} handleUpdateWeek={handleUpdateWeek} />
+          );
+        })}
+      </div>
       <button onClick={handleUpdateClient}>Update Weekly Plan to Client</button>
     </div>
   );

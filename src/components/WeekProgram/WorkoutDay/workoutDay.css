@@ -1,0 +1,87 @@
+.weekday-container {
+  background-color: var(--shade-2);
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--shade-3);
+  width: 325px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.weekday-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weekday-container > h4 {
+  font-size: 26px;
+  padding: 5px;
+  background-color: var(--shade-4);
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 3px solid var(--shade-3);
+  justify-self: center;
+}
+
+.excerpt-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.workout-content,
+.excerpt-container > button {
+  font-size: 18px;
+  margin: 8px 5px;
+}
+
+.update-day-form {
+  border-top: 2px solid var(--shade-3);
+  border-bottom: 2px solid var(--shade-3);
+  display: flex;
+  margin-top: auto;
+}
+
+.update-day-form input {
+  padding: 2px;
+  background: var(--shade-4);
+  border-radius: 0px;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.update-day-form input::placeholder {
+  color: #fff;
+}
+
+.add-btn {
+  transition: 0.5s;
+  border-left: 2px solid var(--shade-3);
+  padding: 4px;
+}
+
+.add-btn:hover {
+  box-shadow: inset 2.25em 0 0 1px var(--shade-4);
+}
+
+.add-btn:active {
+  transition: 0.2s;
+  background: grey;
+}
+
+.update-day-btn-container {
+  background: var(--shade-2);
+  width: 60%;
+  margin: 15px;
+  padding: 10px 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s;
+}
+
+.update-btn:hover {
+  box-shadow: inset 10em 0 0 1px var(--shade-4);
+}

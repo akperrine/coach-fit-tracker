@@ -1,0 +1,28 @@
+.workout-week {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.client-header {
+  font-size: 40px;
+  padding: 20px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  border-radius: 6px;
+  margin: 30px 50px 20px 50px;
+  max-width: 600px;
+}
+
+.week-schedule-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
