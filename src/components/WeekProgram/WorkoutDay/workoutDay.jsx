@@ -3,9 +3,10 @@ import React from "react";
 
 const WorkoutDay = ({ dayIndex, handleUpdateWeek, client }) => {
   const [exerciseArr, setExerciseArr] = React.useState([]);
+  const [updateLoaded, setUpdateLoaded] = React.useState(false);
   const [dayInputField, setDayInputField] = React.useState("");
-  // console.log(exerciseArr);
 
+  console.log(updateLoaded);
   const weekdays = [
     "Sunday",
     "Monday",
@@ -36,7 +37,13 @@ const WorkoutDay = ({ dayIndex, handleUpdateWeek, client }) => {
 
   const onHandleUpdateWeek = () => {
     handleUpdateWeek(exerciseArr, dayIndex);
+    toggleUpdateLoaded();
     setDayInputField("");
+  };
+
+  const toggleUpdateLoaded = () => {
+    setUpdateLoaded(!updateLoaded);
+    console.log(updateLoaded);
   };
 
   const handleDeleteExcerpt = (id) => {
@@ -80,7 +87,11 @@ const WorkoutDay = ({ dayIndex, handleUpdateWeek, client }) => {
           </button>
         </form>
       </div>
-      <div className="update-day-btn-container update-btn">
+      <div
+        className={
+          updateLoaded ? "complete-btn" : "update-day-btn-container update-btn"
+        }
+      >
         <button
           onClick={onHandleUpdateWeek}
         >{`Update ${weekdays[dayIndex]}`}</button>

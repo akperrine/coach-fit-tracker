@@ -49,7 +49,9 @@ const WeekProgram = ({ client }) => {
           );
         })}
       </div>
-      <button onClick={handleUpdateClient}>Update Weekly Plan to Client</button>
+      <button className="week-update-btn" onClick={handleUpdateClient}>
+        Update Weekly Plan to Client
+      </button>
     </div>
   );
 };

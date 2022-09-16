@@ -7,7 +7,6 @@
   min-height: 450px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 
 .weekday-wrapper {
@@ -50,10 +49,13 @@
   border-radius: 0px;
   width: 100%;
   overflow-x: scroll;
+  padding-left: 5px;
 }
 
 .update-day-form input::placeholder {
   color: #fff;
+  opacity: 0.6;
+  padding-left: 5px;
 }
 
 .add-btn {
@@ -84,4 +86,20 @@
 
 .update-btn:hover {
   box-shadow: inset 10em 0 0 1px var(--shade-4);
+}
+
+.update-btn:active,
+.complete-btn:active {
+  transition: 0.2s;
+  transform: translateY(1px);
+}
+
+.complete-btn {
+  background: green;
+  width: 60%;
+  margin: 15px;
+  padding: 10px 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
 }

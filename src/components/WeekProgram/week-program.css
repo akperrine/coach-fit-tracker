@@ -26,3 +26,24 @@
   flex-wrap: wrap;
   margin-bottom: 35px;
 }
+
+.week-update-btn {
+  background: var(--shade-2);
+  font-size: 25px;
+  margin: 15px;
+  padding: 20px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s;
+}
+
+.week-update-btn:hover {
+  box-shadow: inset 14em 0 0 1px var(--shade-4);
+}
+
+.week-update-btn:active {
+  transition: 0.2s;
+  transform: translateY(1px);
+}
