@@ -92,9 +92,9 @@ const WorkoutDay = ({ dayIndex, handleUpdateWeek, client }) => {
           updateLoaded ? "complete-btn" : "update-day-btn-container update-btn"
         }
       >
-        <button
-          onClick={onHandleUpdateWeek}
-        >{`Update ${weekdays[dayIndex]}`}</button>
+        <button onClick={onHandleUpdateWeek}>
+          {updateLoaded ? `Updated` : `Update ${weekdays[dayIndex]}`}
+        </button>
       </div>
     </div>
   );
