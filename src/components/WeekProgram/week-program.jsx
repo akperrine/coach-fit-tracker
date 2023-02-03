@@ -8,6 +8,8 @@ const WeekProgram = ({ client }) => {
   const [idSearchField, setIdSearchField] = React.useState("");
   const [updateArr, setUpdateArr] = React.useState([]);
 
+  console.log(client);
+
   React.useEffect(() => {
     let arr = [];
     for (let i = 0; i < 7; i++) {

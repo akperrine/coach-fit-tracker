@@ -6,7 +6,6 @@ const WorkoutDay = ({ dayIndex, handleUpdateWeek, client }) => {
   const [updateLoaded, setUpdateLoaded] = React.useState(false);
   const [dayInputField, setDayInputField] = React.useState("");
 
-  console.log(updateLoaded);
   const weekdays = [
     "Sunday",
     "Monday",
