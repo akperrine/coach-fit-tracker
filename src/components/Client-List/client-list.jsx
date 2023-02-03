@@ -25,17 +25,24 @@ const ClientList = ({ db }) => {
   return (
     <div>
       {clientData.map((client) => {
-        return (
-          <Link
-            className="update-link-container"
-            to="/edit"
-            state={{ client: client }}
-          >
-            <button className="home-client " type="button" data-hover="Update">
-              <span>{`${client.user}`}</span>
-            </button>
-          </Link>
-        );
+        console.log(client);
+        if (client.user !== "Austin Perrine") {
+          return (
+            <Link
+              className="update-link-container"
+              to="/edit"
+              state={{ client: client }}
+            >
+              <button
+                className="home-client "
+                type="button"
+                data-hover="Update"
+              >
+                <span>{`${client.user}`}</span>
+              </button>
+            </Link>
+          );
+        }
       })}
     </div>
   );
