@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, query, collection, where } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBYwcfG5kErnzPDeDOjtIlE-g698jwltVM",
@@ -13,3 +13,7 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+
+export const getQuery = async (dbCollection, field, stringInput) => {
+  return query(collection(db, dbCollection), where(field, "==", stringInput));
+};
